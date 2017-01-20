@@ -17,7 +17,7 @@ module.exports = function(config) {
       '../app/bower_components/angular-route/angular-route.js',
       './unit/*.js',
       './mock/*.js',
-      '../app/app.js'
+      '../app/js/app.js'
     ],
 
     // test result reporter

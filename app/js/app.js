@@ -8,11 +8,11 @@
 
   myApp.config(function($routeProvider, $locationProvider) {
     $routeProvider
-    .when('/', {templateUrl:'../partials/home.html', activetab: 'home'})
-    .when('/one', {templateUrl:'../partials/one.html', controller:'TestOneController', activetab: 'one'})
-    .when('/two', {templateUrl:'../partials/two.html', controller:'TestTwoController', activetab: 'tow'})
-    .when('/three', {templateUrl:'../partials/three.html', controller:'TestThreeController', activetab: 'three'})
-    .when('/four', {templateUrl:'../partials/four.html', controller:'TestFourController', activetab: 'four'});
+    .when('/', {templateUrl:'partials/home.html', activetab: 'home'})
+    .when('/one', {templateUrl:'partials/one.html', controller:'TestOneController', activetab: 'one'})
+    .when('/two', {templateUrl:'partials/two.html', controller:'TestTwoController', activetab: 'tow'})
+    .when('/three', {templateUrl:'partials/three.html', controller:'TestThreeController', activetab: 'three'})
+    .when('/four', {templateUrl:'partials/four.html', controller:'TestFourController', activetab: 'four'});
 
     // use the HTML5 History API
     $locationProvider.html5Mode(true);
