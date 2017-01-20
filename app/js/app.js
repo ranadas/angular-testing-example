@@ -8,11 +8,11 @@
 
   myApp.config(function($routeProvider, $locationProvider) {
     $routeProvider
-    .when('/', {templateUrl:'partials/home.html'})
-    .when('/one', {templateUrl:'partials/one.html', controller:'TestOneController'})
-    .when('/two', {templateUrl:'partials/two.html', controller:'TestTwoController'})
-    .when('/three', {templateUrl:'partials/three.html', controller:'TestThreeController'})
-    .when('/four', {templateUrl:'partials/four.html', controller:'TestFourController'});
+    .when('/', {templateUrl:'../partials/home.html', activetab: 'home'})
+    .when('/one', {templateUrl:'../partials/one.html', controller:'TestOneController', activetab: 'one'})
+    .when('/two', {templateUrl:'../partials/two.html', controller:'TestTwoController', activetab: 'tow'})
+    .when('/three', {templateUrl:'../partials/three.html', controller:'TestThreeController', activetab: 'three'})
+    .when('/four', {templateUrl:'../partials/four.html', controller:'TestFourController', activetab: 'four'});
 
     // use the HTML5 History API
     $locationProvider.html5Mode(true);
@@ -46,7 +46,7 @@
   myApp.controller('TestThreeController', function($scope, $modal) {
     $scope.modalNumber = 1;
     $scope.txt = 'type something';
-    var myModal = $modal({scope: $scope, templateUrl: 'modal.tpl.html', show: false});
+    var myModal = $modal({scope: $scope, templateUrl: '../modal.tpl.html', show: false});
     $scope.showModal = function() {
       myModal.$promise.then(myModal.show);
     };
@@ -63,5 +63,14 @@
       });
     };
   });
+
+
+    myApp.run(['$rootScope', '$http', '$location', "$route", function ($scope, $http, $location, $route) {
+        $scope.$on("$routeChangeSuccess", function (scope, next, current) {
+            $scope.part = $route.current.activetab;
+            console.log('\nIn routeChange with current active tab: ' + $route.current.activetab );
+            console.log('location path: [' + $location.path()+']\tAbsUrl: [' + $location.absUrl()+']\turl: [' + $location.url()+']');
+        });
+    }]);
 
 }());
