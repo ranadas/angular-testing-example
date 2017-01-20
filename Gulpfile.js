@@ -7,7 +7,7 @@ var gulp = require('gulp'),
 gulp.task('connect', function () {
   connect.server({
     root: 'app/',
-    port: 8888
+    port: 8080
   });
 });
 
@@ -20,7 +20,7 @@ gulp.task('unit', function (done) {
 });
 
 gulp.task('e2e', function(done) {
-  var args = ['--baseUrl', 'http://127.0.0.1:8888'];
+  var args = ['--baseUrl', 'http://127.0.0.1:8080'];
   gulp.src(["./tests/e2e/*.js"])
     .pipe(protractor({
       configFile: "tests/protractor.conf.js",
