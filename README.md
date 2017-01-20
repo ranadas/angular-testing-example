@@ -14,3 +14,18 @@ Check out the [blog posts:
 1. Run the development server - `gulp`
 1. Run unit tests - `gulp unit`
 1. Run e2e tests - `gulp e2e`
+
+
+
+##Notes:
+AngularStrap
+
+http://diveintohtml5.info/history.html
+
+http://stackoverflow.com/questions/16569841/reloading-the-page-gives-wrong-get-request-with-angularjs-html5-mode
+http://jjt.io/2013/11/16/angular-html5mode-using-yeoman-generator-angular/
+
+https://www.atomist.com/
+
+https://browsersync.io/docs/gulp
+https://scotch.io/tutorials/how-to-use-browsersync-for-faster-development

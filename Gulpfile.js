@@ -3,12 +3,20 @@ var gulp = require('gulp'),
     Server = require('karma').Server,
     protractor = require("gulp-protractor").protractor;
 
+var modRewrite = require('connect-modrewrite');
 
 gulp.task('connect', function () {
   connect.server({
     root: 'app/',
-      livereload: true,
-    port: 8080
+    livereload: true,
+    port: 8080,
+    middleware: function() {
+        return [
+            modRewrite([
+                '!\\.\\w+$ /index.html [L]'
+            ])
+        ];
+    }
   });
 });
 
