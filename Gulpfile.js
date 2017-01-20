@@ -7,6 +7,7 @@ var gulp = require('gulp'),
 gulp.task('connect', function () {
   connect.server({
     root: 'app/',
+      livereload: true,
     port: 8080
   });
 });
@@ -29,4 +30,20 @@ gulp.task('e2e', function(done) {
     .on('error', function(e) { throw e; });
 });
 
-gulp.task('default', ['connect']);
+// Rerun the task when a file changes
+gulp.task('html', function(){
+    console.log('Reloading with HTML change...');
+    gulp.src('./app/**/*.html').pipe(connect.reload());
+});
+
+gulp.task('js', function(){
+    console.log('Reloading with JS change...');
+    gulp.src('./app/js/*.js').pipe(connect.reload());
+});
+
+gulp.task('watch', function() {
+    gulp.watch('app/js/**/*.js', ['js']);
+    gulp.watch('app/*.html', ['html']);
+});
+
+gulp.task('default', ['connect','html', 'js', 'watch']);
