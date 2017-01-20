@@ -6,13 +6,16 @@
 
   myApp.constant('VERSION', "0.1");
 
-  myApp.config(function($routeProvider) {
+  myApp.config(function($routeProvider, $locationProvider) {
     $routeProvider
     .when('/', {templateUrl:'partials/home.html'})
     .when('/one', {templateUrl:'partials/one.html', controller:'TestOneController'})
     .when('/two', {templateUrl:'partials/two.html', controller:'TestTwoController'})
     .when('/three', {templateUrl:'partials/three.html', controller:'TestThreeController'})
     .when('/four', {templateUrl:'partials/four.html', controller:'TestFourController'});
+
+    // use the HTML5 History API
+    $locationProvider.html5Mode(true);
   });
 
   myApp.controller('TestOneController', function($scope) {
