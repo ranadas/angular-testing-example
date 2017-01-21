@@ -5,7 +5,7 @@ describe('TestOneController', function () {
   var changeGreetingButton = element(by.css('.btn-default'));
 
   beforeEach(function() {
-    browser.get('http://localhost:8080/');
+    browser.get('http://localhost:8080/one');
   });
 
   it('initially has a greeting', function () {
@@ -33,7 +33,7 @@ describe('TestTwoController', function () {
   var changeTotalButton = element(by.css('.btn-default'));
 
   beforeEach(function() {
-    browser.get('http://localhost:8080/#/two');
+    browser.get('http://localhost:8080/two');
   });
 
   it('initially has a total', function () {
@@ -74,7 +74,7 @@ describe('TestThreeController', function () {
   var justSomeText = element(by.tagName('h2'));
 
   beforeEach(function() {
-    browser.get('http://localhost:8080/#/three');
+    browser.get('http://localhost:8080/three');
   });
 
   it('initially has a modalNumber', function () {
@@ -100,7 +100,7 @@ describe('TestThreeController', function () {
     var li = element.all(by.tagName('li'));
 
     beforeEach(function() {
-      browser.get('http://localhost:8080/#/four');
+      browser.get('http://localhost:8080/four');
     });
 
     it('updates the DOM when the button is clicked', function () {
